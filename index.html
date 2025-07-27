@@ -3,34 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tradei</title>
+  <title>Tradei – Simple invoicing</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="logo">Tradei</div>
     <nav>
-      <a href="#">About</a>
-      <a href="#">Features</a>
-      <a href="#">Contact</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
+  <!-- HERO -->
+  <section class="hero">
     <div class="content">
-      <h1>Invoicing that works, <br>When you do.</h1>
-      <p>Tradei helps UK tradespeople create and send simple invoices. Anyitme, anywhere.</p>
-
-      <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST" class="signup-form">
+      <h1>Invoicing that works, when you do</h1>
+      <p>Tradei helps you create, save and send invoices to allow new and exisitng customers.</p>
+      <form action="https://formspree.io/f/xwpqbkdv" method="POST" class="signup-form">
         <input type="email" name="email" placeholder="Enter your email" required />
-        <button type="submit">Join Early Testing</button>
+        <button type="submit">Join Early Access</button>
       </form>
-      <small>No spam, just your invite link.</small>
+      <small>No spam. Just your invite link.</small>
     </div>
-
     <div class="image-container">
       <img src="iphone-screenshot.png" alt="Tradei App Preview" />
     </div>
-  </main>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <h2>The basics, but better ✨</h2>
+    <p>Making invoicing a breeze</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <img src="feature1.png" alt="Expense Tracking" />
+        <h3>Fast invoices</h3>
+      </div>
+      <div class="feature">
+        <img src="feature2.png" alt="Widgets" />
+        <h3>Add, edit delete customers</h3>
+      </div>
+      <div class="feature">
+        <img src="feature3.png" alt="Reminders" />
+        <h3>Works offline.</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2>About Tradei</h2>
+    <p>
+      Tradei was built to simplify the business side for UK electricians, plumbers, and builders. 
+      Our goal is to make admin fast so you can focus on your actual work.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email us at: <a href="mailto:hello@tradei.com">hello@tradei.com</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Tradei. All rights reserved.</p>
+  </footer>
 </body>
 </html>
