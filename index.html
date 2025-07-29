@@ -6,150 +6,172 @@
   <title>Tradei – Invoicing that works, when you do</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      background-color: #fff;
+      background: #fff;
       color: #111;
-      scroll-behavior: smooth;
     }
 
     header {
-      position: fixed;
-      top: 0;
       width: 100%;
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      z-index: 999;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      position: fixed;
+      background: #fff;
+      z-index: 1000;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 32px;
+      margin-right: 10px;
     }
 
     nav a {
-      margin-left: 1.5rem;
+      margin-left: 30px;
       text-decoration: none;
-      color: #333;
+      color: #111;
       font-weight: 500;
+      font-size: 1rem;
     }
 
-    .hero {
-      padding: 150px 2rem 80px;
+    .container {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      text-align: center;
+      padding: 150px 40px 80px;
+      flex-wrap: wrap;
     }
 
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+    .left {
+      flex: 1;
+      min-width: 300px;
       max-width: 500px;
     }
 
-    form {
+    .left h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .left p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    .cta-form {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 1rem;
     }
 
-    input[type="email"] {
+    .cta-form input {
       padding: 0.75rem;
-      width: 250px;
-      max-width: 90%;
-      border: 1px solid #ccc;
-      border-radius: 6px 0 0 6px;
       font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px 0 0 8px;
+      width: 250px;
+      max-width: 100%;
     }
 
-    button {
+    .cta-form button {
       padding: 0.75rem 1rem;
+      font-size: 1rem;
       background: #7c3aed;
       color: white;
       border: none;
-      border-radius: 0 6px 6px 0;
-      font-size: 1rem;
+      border-radius: 0 8px 8px 0;
       cursor: pointer;
     }
 
+    .right {
+      flex: 1;
+      text-align: center;
+      min-width: 300px;
+    }
+
+    .right img {
+      width: 100%;
+      max-width: 400px;
+    }
+
     .section {
-      padding: 100px 2rem;
+      padding: 100px 40px;
       max-width: 1000px;
       margin: 0 auto;
     }
 
-    .scroll-section {
-      scroll-margin-top: 130px;
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .feature {
-      text-align: center;
-    }
-
-    .feature img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    }
-
-    footer {
-      padding: 3rem 2rem;
-      background: #f9f9f9;
-      text-align: center;
-      font-size: 0.9rem;
+    .section p {
+      font-size: 1rem;
       color: #555;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #f9f9f9;
+      font-size: 0.9rem;
+      color: #666;
+    }
 
-      input[type="email"], button {
-        width: 100%;
-        border-radius: 6px;
-      }
-
-      form {
+    @media (max-width: 900px) {
+      .container {
         flex-direction: column;
-        gap: 0.5rem;
+        text-align: center;
+        padding-top: 120px;
       }
 
-      input[type="email"] {
-        border-radius: 6px;
+      .left h1 {
+        font-size: 2.2rem;
       }
 
-      button {
-        border-radius: 6px;
+      .cta-form {
+        flex-direction: column;
+      }
+
+      .cta-form input, .cta-form button {
+        border-radius: 8px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Header -->
   <header>
-    <div><strong>Tradei</strong></div>
+    <div class="logo">
+      <img src="your-logo-url.png" alt="Tradei Logo">
+      <strong>Tradei</strong>
+    </div>
     <nav>
       <a href="#features">Features</a>
       <a href="#about">About</a>
@@ -158,56 +180,40 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero scroll-section">
-    <h1>Invoicing that works, when you do</h1>
-    <p>Tradei helps UK tradespeople create and send simple, fast invoices from anywhere.</p>
-
-    <form action="https://getform.io/f/adrgemga" method="POST">
-      <input type="email" name="email" placeholder="Enter your email" required />
-      <button type="submit">Join Early Access</button>
-    </form>
-    <small style="color: #888;">No spam. Just your invite link.</small>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="section scroll-section">
-    <h2 style="text-align: center;">✨ The basics, but better</h2>
-    <p style="text-align: center;">Everything you need to get paid fast.</p>
-
-    <div class="features-grid">
-      <div class="feature">
-        <img src="https://via.placeholder.com/300x600?text=Invoice+UI" alt="Invoice UI" />
-        <h3>Fast invoices</h3>
-        <p>Create and send clean invoices in seconds.</p>
-      </div>
-      <div class="feature">
-        <img src="https://via.placeholder.com/300x600?text=Customers+UI" alt="Customer UI" />
-        <h3>Manage customers</h3>
-        <p>Add, edit, and delete customers easily.</p>
-      </div>
-      <div class="feature">
-        <img src="https://via.placeholder.com/300x600?text=Offline+UI" alt="Offline" />
-        <h3>Works offline</h3>
-        <p>Access your invoices even with no signal.</p>
-      </div>
+  <section class="container">
+    <div class="left">
+      <h1>Invoicing that works,<br> when you do</h1>
+      <p>Tradei helps UK tradespeople create and send fast, simple invoices. No faff. Just payment.</p>
+      <form actionhttps://getform.io/f/adrgemga" method="POST" class="cta-form">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <button type="submit">Join Early Access</button>
+      </form>
+      <small style="color:#888; display:block; margin-top:10px;">No spam. Just your invite link.</small>
+    </div>
+    <div class="right">
+      <img src="your-app-screenshot.png" alt="App Screenshot">
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section scroll-section">
+  <!-- Features -->
+  <section id="features" class="section">
+    <h2>✨ Features</h2>
+    <p>- Fast invoices<br>- Manage customers<br>- Works offline</p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
     <h2>About Tradei</h2>
-    <p style="text-align:center; max-width:700px; margin:0 auto;">
-      Tradei was built to simplify the business side for UK electricians, plumbers, and builders.
-      Our goal is to make admin fast so you can focus on your actual work.
-    </p>
+    <p>Tradei was built to simplify admin for UK electricians, plumbers, and builders. Our goal is to make invoicing painless so you can focus on what matters.</p>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section scroll-section">
+  <!-- Contact -->
+  <section id="contact" class="section">
     <h2>Contact</h2>
-    <p style="text-align:center;">Email us at: <a href="mailto:hello@tradei.com">hello@tradei.com</a></p>
+    <p>Email us at: <a href="mailto:hello@tradei.com">hello@tradei.com</a></p>
   </section>
 
+  <!-- Footer -->
   <footer>
     &copy; 2025 Tradei. All rights reserved.
   </footer>
