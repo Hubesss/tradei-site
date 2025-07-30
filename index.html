@@ -11,10 +11,21 @@
       box-sizing: border-box;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #fff;
       color: #111;
+      line-height: 1.6;
     }
 
     header {
@@ -24,14 +35,18 @@
       justify-content: space-between;
       align-items: center;
       position: fixed;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       z-index: 1000;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
 
     .logo {
       display: flex;
       align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
     }
 
     .logo img {
@@ -44,112 +59,780 @@
       text-decoration: none;
       color: #111;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
     }
 
-    .container {
+    nav a:hover {
+      color: #7c3aed;
+    }
+
+    .hero {
+      min-height: 100vh;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 150px 40px 80px;
-      flex-wrap: wrap;
+      justify-content: center;
+      padding: 120px 40px 80px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     }
 
-    .left {
-      flex: 1;
-      min-width: 300px;
-      max-width: 500px;
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
 
-    .left h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .left p {
-      font-size: 1.1rem;
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
       margin-bottom: 1.5rem;
-      color: #555;
+      background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #64748b;
+      line-height: 1.6;
     }
 
     .cta-form {
       display: flex;
       flex-wrap: wrap;
-    }
-
-    .cta-form input {
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px 0 0 8px;
-      width: 250px;
-      max-width: 100%;
-    }
-
-    .cta-form button {
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-      background: #7c3aed;
-      color: white;
-      border: none;
-      border-radius: 0 8px 8px 0;
-      cursor: pointer;
-    }
-
-    .right {
-      flex: 1;
-      text-align: center;
-      min-width: 300px;
-    }
-
-    .right img {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .section {
-      padding: 100px 40px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .section h2 {
-      font-size: 2rem;
+      gap: 12px;
       margin-bottom: 1rem;
     }
 
-    .section p {
+    .cta-form input {
+      padding: 16px 20px;
       font-size: 1rem;
-      color: #555;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      width: 300px;
+      max-width: 100%;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .cta-form input:focus {
+      outline: none;
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+
+    .cta-form button {
+      padding: 16px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #3d3aed 0%, #5c71f6 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+    }
+
+    .cta-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+    }
+
+    .hero-image {
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transform: rotate(-5deg);
+      border: none;
+      outline: none;
+    }
+
+    .section {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-header p {
+      font-size: 1.2rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      margin-top: 80px;
+    }
+
+    .feature-item {
+      text-align: center;
+    }
+
+    .feature-item h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 24px;
+      color: #1e293b;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .feature-mockup {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      opacity: 0.3;
+    }
+
+    .phone-mockup {
+      width: 200px;
+      height: 350px;
+      background: #000;
+      border-radius: 25px;
+      padding: 8px;
+      position: relative;
+    }
+
+    .phone-mockup.small {
+      width: 150px;
+      height: 250px;
+    }
+
+    .feature-item:hover .feature-mockup {
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    .phone-header {
+      background: #000;
+      color: white;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 17px 17px 0 0;
+    }
+
+    .phone-icons {
+      display: flex;
+      gap: 4px;
+    }
+
+    .app-screen {
+      background: white;
+      height: calc(100% - 32px);
+      border-radius: 0 0 17px 17px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .invoice-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .form-field label {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .form-field input {
+      padding: 8px 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 14px;
+      background: #f8fafc;
+    }
+
+    .send-btn {
+      background: #7c3aed;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .widget-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .widget {
+      width: 180px;
+      height: 120px;
+      background: linear-gradient(135deg, #403aed 0%, #5c71f6 100%);
+      border-radius: 16px;
+      padding: 16px;
+      color: white;
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+    }
+
+    .widget-content h4 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      opacity: 0.9;
+    }
+
+    .amount {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: white;
+      width: 75%;
+      border-radius: 2px;
+    }
+
+    .dashboard {
+      text-align: center;
+    }
+
+    .dashboard h3 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #1e293b;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-size: 20px;
+      font-weight: 700;
+      color: #7c3aed;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .customer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .customer-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 8px;
+    }
+
+    .customer-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #1e293b;
+    }
+
+    .customer-info p {
+      font-size: 12px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    .reuse-btn {
+      background: #7c3aed;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .report-content {
+      padding: 16px 0;
+    }
+
+    .report-period h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #1e293b;
+    }
+
+    .report-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .draft-content {
+      padding: 16px 0;
+    }
+
+    .offline-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .offline-dot {
+      width: 8px;
+      height: 8px;
+      background: #f59e0b;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .draft-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .draft-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: #fef3c7;
+      border-radius: 8px;
+      border-left: 3px solid #f59e0b;
+    }
+
+    .draft-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #1e293b;
+    }
+
+    .draft-info p {
+      font-size: 12px;
+      color: #92400e;
+      margin: 0;
+    }
+
+    .draft-status {
+      background: #f59e0b;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .sync-notice {
+      text-align: center;
+      font-size: 11px;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .share-content {
+      padding: 16px 0;
+    }
+
+    .invoice-preview {
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .invoice-preview h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #1e293b;
+    }
+
+    .invoice-preview p {
+      font-size: 12px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    .share-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .share-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 8px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .share-option:hover {
+      background: #e2e8f0;
+    }
+
+    .share-icon {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .share-option span:last-child {
+      font-size: 11px;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .payment-content {
+      padding: 16px 0;
+      text-align: center;
+    }
+
+    .qr-section {
+      margin-bottom: 16px;
+    }
+
+    .qr-code {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border: 2px solid #1e293b;
+      border-radius: 8px;
+      margin: 0 auto 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .qr-pattern {
+      width: 60px;
+      height: 60px;
+      background: repeating-conic-gradient(
+        from 0deg at 50% 50%,
+        #1e293b 0deg 90deg,
+        transparent 90deg 180deg
+      );
+      border-radius: 4px;
+    }
+
+    .qr-section p {
+      font-size: 12px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    .payment-methods {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 12px;
+    }
+
+    .payment-method {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .payment-method span:first-child {
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .coming-soon-badge {
+      background: linear-gradient(135deg, #3a3ded 0%, #5c71f6 100%);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .reminder-modal {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      background: #f8fafc;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .modal-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .close {
+      font-size: 20px;
+      color: #64748b;
+      cursor: pointer;
+    }
+
+    .modal-content {
+      padding: 16px;
+    }
+
+    .modal-content p {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    .reminder-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .option:hover {
+      background: #f1f5f9;
+    }
+
+    .option.selected {
+      background: #7c3aed;
+      color: white;
+    }
+
+    .emoji {
+      font-size: 16px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-image {
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-content h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+    }
+
+    .contact-content p {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+
+    .contact-email {
+      display: inline-block;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #4c3aed 0%, #5c5ff6 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+    }
+
+    .contact-email:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
-      background: #f9f9f9;
-      font-size: 0.9rem;
-      color: #666;
+      padding: 60px 20px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+      color: #64748b;
     }
 
     @media (max-width: 900px) {
-      .container {
-        flex-direction: column;
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
         text-align: center;
-        padding-top: 120px;
       }
 
-      .left h1 {
-        font-size: 2.2rem;
+      .hero-text h1 {
+        font-size: 2.5rem;
       }
 
       .cta-form {
         flex-direction: column;
+        align-items: center;
       }
 
       .cta-form input, .cta-form button {
-        border-radius: 8px;
         width: 100%;
-        margin-bottom: 10px;
+        max-width: 300px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .features-showcase {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .phone-mockup {
+        width: 180px;
+        height: 320px;
+      }
+
+      .phone-mockup.small {
+        width: 140px;
+        height: 220px;
+      }
+
+      .widget {
+        width: 160px;
+        height: 100px;
       }
 
       header {
@@ -161,6 +844,19 @@
       nav {
         margin-top: 10px;
       }
+
+      nav a {
+        margin-left: 20px;
+        margin-right: 0;
+      }
+
+      .section {
+        padding: 80px 20px;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
@@ -169,54 +865,120 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <img src="TradeInvoiceAppicon.png" alt="Tradei Logo">
+      <img src="Tradeimage.png" alt="Tradei Logo">
       <strong>Tradei</strong>
     </div>
     <nav>
       <a href="#features">Features</a>
       <a href="#about">About</a>
+      <a href="#about-me">About Me</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="container">
-    <div class="left">
-      <h1>Invoicing that works,<br> when you do</h1>
-      <p>Tradei helps UK tradespeople create and send fast, simple invoices. No faff. Just payment.</p>
-      <form actionhttps://getform.io/f/adrgemga" method="POST" class="cta-form">
-        <input type="email" name="email" placeholder="Enter your email" required />
-        <button type="submit">Join Early Access</button>
-      </form>
-      <small style="color:#888; display:block; margin-top:10px;">No spam. Just your invite link.</small>
-    </div>
-    <div class="right">
-      <img src="your-app-screenshot.png" alt="App Screenshot">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Invoicing that works,<br> when you do</h1>
+        <p>Tradei helps UK tradespeople create and send fast, simple invoices. No faff. Just payment.</p>
+        <form action="https://getform.io/f/adrgemga" method="POST" class="cta-form">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <button type="submit">Join Early Testing</button>
+        </form>
+        <small style="color:#888; display:block; margin-top:10px;">No spam. Just your invite link.</small>
+      </div>
+      <div class="hero-image">
+        <img src="Tradeimage.png" alt="Tradei App Screenshot">
+      </div>
     </div>
   </section>
 
   <!-- Features -->
   <section id="features" class="section">
-    <h2>✨ Features</h2>
-    <p>- Fast invoices<br>- Manage customers<br>- Works offline</p>
+    <div class="section-header">
+      <h2>✨ The basics, but better</h2>
+      <p>Built so you'll want to open it and create invoices on the go</p>
+    </div>
+    
+    <div class="features-showcase">
+      <div class="feature-item">
+        <h3>Send invoices (fast)</h3>
+        <p>Create and send professional invoices in seconds, not minutes. Perfect for when you're between jobs.</p>
+      </div>
+      
+      <div class="feature-item">
+        <h3>Save customers quickly</h3>
+        <p>Store customer details once and reuse them for future invoices. No more typing the same address over and over.</p>
+      </div>
+      
+      <div class="feature-item">
+        <h3>Work offline and online</h3>
+        <p>Draft invoices when you're offline and they'll sync automatically when you're back online. Never lose work again.</p>
+      </div>
+      
+      <div class="feature-item">
+        <h3>Get data for this year or tax year</h3>
+        <p>Export your invoice data for the current year or tax year. Perfect for your accountant or self-assessment.</p>
+      </div>
+      
+      <div class="feature-item">
+        <h3>Share invoices via email or WhatsApp</h3>
+        <p>Send invoices directly to customers through email, WhatsApp, SMS, or share a link. Multiple ways to get paid faster.</p>
+      </div>
+      
+      <div class="feature-item">
+        <h3>Coming Soon - Get paid directly from your invoice</h3>
+        <p>QR codes for quick payment straight to your business. Accept card payments, bank transfers, and Apple Pay directly from invoices.</p>
+      </div>
+    </div>
   </section>
 
   <!-- About -->
   <section id="about" class="section">
-    <h2>About Tradei</h2>
-    <p>Tradei was built to simplify admin for UK electricians, plumbers, and builders. Our goal is to make invoicing painless so you can focus on what matters.</p>
+    <div class="about-content">
+      <div class="about-text">
+        <h3>Built for UK tradespeople</h3>
+        <p>Tradei was built to simplify admin for UK electricians, plumbers, builders, and all tradespeople. We know you'd rather be working than doing paperwork.</p>
+        <p>Our goal is to make invoicing painless so you can focus on what matters most - your craft and your customers.</p>
+        <p>Simple, fast, and reliable. That's what we're about.</p>
+      </div>
+              <div class="about-image">
+          <img src="Tradeimage.png" alt="Tradei App Screenshot">
+        </div>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about-me" class="section" style="background: #f8fafc;">
+    <div class="section-header">
+      <h2>👋 Hi, I'm Hubert</h2>
+      <p>The developer behind Tradei</p>
+    </div>
+    <div class="about-content" style="grid-template-columns: 1fr; text-align: center; max-width: 800px; margin: 0 auto;">
+      <div class="about-text">
+        <h3>Why I built Tradei</h3>
+        <p>I've spent years working with tradespeople and seeing the same frustrations over and over - complicated invoicing systems, time wasted on admin, and tools that just don't work the way you work.</p>
+        <p>My background in software development and my experience working with UK tradespeople showed me there was a real need for something simpler. Something that actually saves time instead of creating more work.</p>
+        <p>Tradei is my attempt to fix that. It's built specifically for how UK tradespeople actually work - on the go, between jobs, when you have a spare 5 minutes. No complicated features, no learning curve, just fast invoices that get you paid.</p>
+        <p>I believe great tools should disappear into the background and let you focus on what you're good at. For tradespeople, that's your craft and your customers.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email us at: <a href="mailto:hello@tradei.com">hello@tradei.com</a></p>
+    <div class="contact-content">
+      <h3>Ready to get started?</h3>
+      <p>Join our early access list and be the first to know when Tradei launches. We're building something special for UK tradespeople.</p>
+      <a href="mailto:hello@tradei.com" class="contact-email">hello@tradei.com</a>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Tradei. All rights reserved.
+    <p>&copy; 2025 Tradei. All rights reserved.</p>
   </footer>
 
 </body>
-</html>
+</html> 
