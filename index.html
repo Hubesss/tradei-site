@@ -776,6 +776,81 @@
       box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
     }
 
+    .video-section {
+      padding: 120px 40px;
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      text-align: center;
+    }
+
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .video-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .video-section p {
+      font-size: 1.2rem;
+      color: #64748b;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .demo-video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      animation: videoFade 44s ease-in-out infinite;
+    }
+
+    .demo-video:hover {
+      transform: scale(1.02);
+    }
+
+    @keyframes videoFade {
+      0%, 100% { opacity: 0; }
+      5%, 95% { opacity: 1; }
+    }
+
+    .demo-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+    }
+
     footer {
       text-align: center;
       padding: 60px 20px;
@@ -869,6 +944,7 @@
       <strong>Tradei</strong>
     </div>
     <nav>
+      <a href="#demo">Demo</a>
       <a href="#features">Features</a>
       <a href="#about">About</a>
       <a href="#about-me">About Me</a>
@@ -887,10 +963,28 @@
           <button type="submit">Join Early Testing</button>
         </form>
         <small style="color:#888; display:block; margin-top:10px;">No spam. Just your invite link.</small>
+        <div style="margin-top: 40px; text-align: center;">
+          <p style="color: #7c3aed; font-size: 1.1rem; margin-bottom: 15px; font-weight: 600;">Watch the demo</p>
+          <a href="#demo" class="demo-button" style="text-decoration: none; color: #7c3aed; cursor: pointer; display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); color: white; border-radius: 12px; font-weight: 600; box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3); transition: all 0.3s ease;">
+            <span style="margin-right: 8px;">▶</span>Play Demo
+          </a>
+        </div>
       </div>
       <div class="hero-image">
         <img src="Tradeimage.png" alt="Tradei App Screenshot">
       </div>
+    </div>
+  </section>
+
+  <!-- See it in Action -->
+  <section id="demo" class="video-section">
+    <div class="video-container">
+      <h2>See it in Action</h2>
+      <p>Watch how easy it is to create and send an invoice in just 30 seconds</p>
+      <video autoplay muted loop playsinline class="demo-video">
+        <source src="example.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </section>
 
@@ -944,9 +1038,12 @@
         <p>No fancy bookeeping, AI or features you'll never use.</p>
         <p>Simple, fast, and reliable. That's what Tradei is about.</p>
       </div>
-              <div class="about-image">
-          <img src="Tradeimage.png" alt="Tradei App Screenshot">
+      <div class="about-image">
+        <div style="display: flex; justify-content: center; gap: 40px; align-items: center; flex-wrap: wrap;">
+          <img src="Tradeimage.png" alt="Tradei App Screenshot" style="width: 100%; max-width: 250px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+          <img src="customersbehined.png" alt="Tradei Customers Screen" style="width: 100%; max-width: 250px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transform: rotate(2deg);">
         </div>
+      </div>
     </div>
   </section>
 
